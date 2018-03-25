@@ -1,4 +1,4 @@
-# Ames_Housin_Data
+# CSX_450_2_Final_Exam
 
 
 ### Domain
@@ -735,4 +735,3 @@ Let's use the average Sale Price as our naive benchmark.
 ### Performance Metrics
 
 To measure the accuracy with which Sale Price is predicted, let's use Root Mean Square Error (RMSE).
-
