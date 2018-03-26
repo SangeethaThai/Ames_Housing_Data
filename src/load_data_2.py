@@ -82,7 +82,7 @@ def lasso_selected_features(features, target, n_features) :
 
     df = pd.DataFrame()
     df["colnames"] = features.columns
-    df["coefs"] = random_lasso.coef_
+    df["coefs"] = np.abs(random_lasso.coef_)
     df = df.sort_values(by='coefs', ascending=False)
     df = df.head(n_features)   
     return df["colnames"]
