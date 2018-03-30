@@ -57,16 +57,19 @@ def clean_data(housing_df) :
     return housing_df
     
 
-def scale_numeric_features(housing_df) :
-    all_features = housing_df.iloc[:,:-1]
-    numeric_features = all_features.select_dtypes(include=['float', 'int'])
+def split_features_target(housing_df) :
+    return  housing_df.iloc[:,:-1], housing_df.iloc[:, len(housing_df.columns)-1]
+
+def split_numerical_categorical(features_df) :
+    return features_df.select_dtypes(include=['float', 'int']), features_df.select_dtypes(include=['category'])
+
+def log_scale_features(numeric_features) :    
     num_log_df = np.log(numeric_features + 1)
-    num_log_sc_df = (num_log_df - num_log_df.mean())/(2*num_log_df.std())
-    all_features.update(num_log_sc_df)
-    return all_features
+    return (num_log_df - num_log_df.mean())/(2*num_log_df.std())
     
     
-def one_hot_encode_categorical_features(housing_df) :
+    
+def one_hot_encode_features(housing_df) :
     return pd.get_dummies(housing_df)
 
 
