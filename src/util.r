@@ -1,9 +1,9 @@
 
 loadCleanAmesData <- function() {
     
-    zoning_df = read.csv('../data/zoning.csv')
-    listing_df = read.csv('../data/listing.csv')
-    sale_df = read.csv('../data/sale.csv')
+    zoning_df = read.csv('../../data/zoning.csv')
+    listing_df = read.csv('../../data/listing.csv')
+    sale_df = read.csv('../../data/sale.csv')
 
     housing_df = merge(zoning_df, listing_df, by="Id")
     housing_df = merge(housing_df, sale_df, by="Id")
